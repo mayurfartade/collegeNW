@@ -1,0 +1,91 @@
+{% extends 'forum/base.html' %}
+
+{% block content %}
+    
+        
+    
+
+<form action="" method="POST" autocomplete="off">
+
+
+    <div class="container border rounded shadow-lg p-4" style="margin-top:130px; max-width:500px;">
+        {% csrf_token %}
+        <div class="text-center "> 
+            <h5><!--span class="shadow"><span style="color: #34b4eb;">L</span>O<span style="color: #34b4eb;">G</span>I<span style="color: #34b4eb;">N</span></span-->
+                Student Register
+            </h5>
+        </div>
+
+        <div class="text-center">
+            {% if messages %}
+            <div class="container">
+                <div class=" alert alert-warning">
+                {% for i in messages %}
+                <strong>{{i}}!</strong> 
+                {% endfor %}
+                </div>
+            </div>
+            {%endif%}
+        </div>
+
+        <!--Fname Lname-->
+        <div class="row form-group">
+           <!---- {{ form }} -->
+            <div class="col">
+                <div class="form-group mt-3">
+                    <label for="usr"><b>First Name:</b></label>
+                    <input type="text" class="form-control  rounded-0" name="fname"  placeholder="First Name" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group mt-3">
+                    <label for="name"><b>Last Name</b></label>
+                    <input type="text" class="validate-input rounded-0 form-control" placeholder="Last Name" name="lname" id="" required>
+                </div>
+            </div>
+        </div>
+
+        <!--Email-->
+        <div class="form-group mt-3">
+            <label for="email">Email:</label>
+            <input type="email" class="validate-input  form-control rounded-0"  name="email" placeholder="Enter Email" id="" required>
+        </div>
+
+
+        <!--Mobile Gender-->
+        <div class="row form-group">
+            <div class="col">
+                <label for="name">Mobile</label>
+                <input type="number" class="validate-input rounded-0 form-control" placeholder="Mobile Number" name="mono" id="" required>
+            </div>
+            <div class="col">
+                <label for="name">Gender</label>
+                <select name="gender" class="custom-select">
+                    <option value="male" selected>Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>     
+                </select>
+            </div>
+        </div>
+
+        <!-- PAssword-->
+        <div class="form-group ">
+            <label for="password">Password:</label>
+            <input type="password"  class=" validate-input rounded-0 form-control" name="password" placeholder="Enter Password" id="" required>
+        </div>
+
+        <!--Retype-->
+        <div class="form-group ">
+            <label for="password">Retype Password:</label>
+            <input type="password"  class=" validate-input rounded-0 form-control" name="cpassword" placeholder="Retype Password" id="" required>
+        </div>
+
+        <div class="text-center"><button type="submit " class=" btn btn-dark rounded-0 btn-lg ">Signup</button></div>
+
+        <br><div class="text-center">
+            Already have an account? <a href="{% url 'student-login' %}">Login</a>
+        </div>
+
+    </form>
+
+{% endblock content %}

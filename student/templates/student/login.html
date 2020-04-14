@@ -1,0 +1,51 @@
+    {% extends 'forum/base.html' %}
+    
+    {% block content %}
+  
+    {% if messages %}
+    <div class="container">
+        <div class=" alert alert-success">
+        {% for i in messages %}
+        <strong>{{i}}!</strong> 
+        {% endfor %}
+        </div>
+    </div>
+    {%endif%}
+
+
+    
+<form action="" method="POST" autocomplete="on">
+
+    <div class="container border rounded shadow-lg p-4" style="margin-top:130px; max-width:500px;">
+        {% csrf_token %}
+        <div class="text-center mt-4"> 
+            <h5><!--span class="shadow"><span style="color: #34b4eb;">L</span>O<span style="color: #34b4eb;">G</span>I<span style="color: #34b4eb;">N</span></span-->
+                Student Login
+            </h5>
+        </div>
+       
+        <div class="form-group mt-3">
+        <label for="usr"><b>Username:</b></label>
+        <input type="email" class="form-control  rounded-0" name="email"  placeholder="Enter your username" required>
+        </div>
+    
+        <div class="form-group mt-3">
+        <label for="usr"><b>Password:</b></label>
+        <input type="password" class="form-control rounded-0" name="password" placeholder="Enter your password" required>
+        </div>
+    
+        <div class="form-check-inline">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input rounded-0" name="check" value="1">Remember me
+            </label>
+        </div>
+    
+        <div class="text-center mb-2 pt-2"><button type="submit" name="submit" class="btn btn-dark rounded-0 ">Login</button></div>
+    
+        <p class="text-center">Don't have an account?<a href="{% url 'student-register' %}" ><b> Register</b></a></p>
+    </div>
+    
+</form>
+        
+
+    {% endblock content %}

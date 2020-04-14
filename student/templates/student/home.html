@@ -1,0 +1,61 @@
+{% extends 'forum/base.html' %}
+    
+    {% block content %}
+  
+    {% if messages %}
+    <div class="container">
+        <div class=" alert alert-success">
+        {% for i in messages %}
+        <strong>{{i}}!</strong> 
+        {% endfor %}
+        </div>
+    </div>
+    {%endif%}
+
+    <div class="container"  style="margin-top:6px;">
+      <br>
+      <div class="bg-light rounded shadow-sm  col-sm-3 col-12" style="padding:1%;">
+        <form>
+          <input type="text" style="margin-left:px;margin-right:5px;" class="form-control" placeholder="Search anything..">
+        </form>
+    </div>
+        <!--study-->
+        <br>
+        <div class="bg-light rounded shadow-sm" style="padding:1%;">
+            <p class="lead border-bottom">STUDY</p>
+            <div class="row">
+                <button class="col-4 btn " style="margin-top:1.5%;margin-bottom:1.5%;">SYLLABUS</button>
+                <button class="col-4 btn " style="margin-top:1.5%;margin-bottom:1.5%;">TIMETABLE</button>
+                <button class="col-4 btn " style="margin-top:1.5%;margin-bottom:1.5%;">NOTES</button>
+                <button class="col-4 btn " style="margin-top:1.5%;margin-bottom:1.5%;">Q.PPRS</button>
+                <button class="col-4 btn " style="margin-top:1.5%;margin-bottom:1.5%;">IMP</button>
+                <button class="col-4 btn " style="margin-top:1.5%;margin-bottom:1.5%;">V-LABS</button>
+            </div>
+        </div>
+        <br>
+        <!--test-->
+        <div class="bg-light rounded shadow-sm" style="padding:1%;">
+            <p class="lead border-bottom">TEST</p>
+            <div class="row">
+                <button class="col-4 btn " style="margin-top:1.5%;margin-bottom:1.5%;" >TESTS <span class="btn badge badge-danger">1</span></button>
+                <button class="col-4 btn " style="margin-top:1.5%;margin-bottom:1.5%;" >RESULTS</button>
+                <button class="col-4 btn " style="margin-top:1.5%;margin-bottom:1.5%;" >ANSWERS</button>
+            </div>
+        </div>
+        <br>
+        <!--forum-->
+        <div class="bg-light rounded shadow-sm" style="padding:1%;">
+            <p class="lead border-bottom">FORUM</p>
+            <div class="row">
+                <button class="col-4 btn " style="margin-top:1.5%;margin-bottom:1.5%;"  ><a href="{% url 'forum-home' %}">NEW TOPIC</a></button>
+                <button class="col-4 btn " style="margin-top:1.5%;margin-bottom:1.5%;"  ><a href="{% url 'forum-home' %}">OLD TOPICS</a></button>
+                <button class="col-4 btn " style="margin-top:1.5%;margin-bottom:1.5%;"  ><a href="{% url 'forum-home' %}">FORUMS<span class="btn badge badge-danger">9</span> </a></button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    {% endblock content %}

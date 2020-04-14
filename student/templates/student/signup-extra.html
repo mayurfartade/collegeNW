@@ -1,0 +1,102 @@
+
+
+
+
+
+{% extends 'forum/base.html' %}
+
+
+
+{% block content %}
+
+
+{% if messages %}
+    <div class="container">
+        <div class=" alert alert-success">
+        {% for i in messages %}
+        <strong>{{i}}!</strong> 
+        {% endfor %}
+        </div>
+    </div>
+{%endif%}
+
+<div class="container border rounded shadow-lg p-4" style="margin-top:80px; margin-bottom:80px; max-width:500px;">
+
+ <form class="container"  action="" method="POST">
+    <br>
+    {% csrf_token %}
+    <h1 class="text-center">Student Extra Details</h1>
+
+    <!--Branch-->
+    <div class="form-group ">
+        <label >Branch:</label>
+        <input type="text"  class="rounded-0 validate-input  form-control" name="Branch" placeholder="CSE" id="" required readonly>
+    </div>
+
+    <!--Year-->
+    <div class="row form-group">
+        
+        <label  class="col">Year:</label>
+        <div class="col ">
+            <input type="radio" class=""  name="year" value="2">
+            <label for="male">2nd</label>
+        </div>
+        <div class="col">
+            <input type="radio" class=""  name="year" value="3">
+            <label for="male">3rd</label><br>
+        </div>
+        <div class="col">
+            <input type="radio" class=""  name="year" value="4">
+            <label for="male">4th</label><br>
+        </div>
+    </div>
+
+    <!--Div-->
+    <div class="row form-group">
+        
+        <label  class="col">Div:</label>
+        <div class="col ">
+            <input type="radio"  name="div" value="A">
+            <label for="male">A</label><br>
+        </div>
+        <div class="col">
+            <input type="radio"  name="div" value="B">
+            <label for="male">B</label><br>
+        </div>
+        <div class="col">
+            <input type="radio"  name="div" value="C">
+            <label for="male">C</label><br>
+        </div>
+    </div>
+
+    <!--Roll No-->
+    <div class="form-group ">
+        <label >Roll No:</label>
+        <input type="number" class="validate-input rounded-0 form-control"  name="roll_no" placeholder="Enter Roll No" id="" required>
+    </div>
+
+    
+    <!--PRN No-->
+    <div class="form-group ">
+        <label >PRN No:</label>
+        <input type="number" class="validate-input rounded-0 form-control"  name="prn_no" placeholder="Enter PRN No" id="" required>
+    </div>
+
+    <!--Bday-->
+    <div class="form-group">
+        <label for="birthday">Birthday:</label>
+        <input type="date" class="validate-input rounded-0 form-control" id="birthday" name="birthday" required>
+    </div>
+    
+    <!--Profile-->
+    <div class="form-group">
+        <label for="Profile">Profile:</label>
+        <input type="file" class="form-control-file   "> 
+    </div>
+   
+    <div class="text-center"><button type="submit " class=" btn btn-dark rounded-0 btn-lg ">Submit</button></div><br>
+</form>
+</div>
+
+
+{% endblock content %}

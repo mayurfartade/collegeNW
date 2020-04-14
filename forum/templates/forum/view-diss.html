@@ -1,0 +1,86 @@
+{% extends "forum/base.html" %}
+
+
+
+
+
+
+{% block content %}
+    <!-- Latest Forums List-->
+
+    {% if messages %}
+    <div class="container">
+        <div class=" alert alert-success">
+        {% for i in messages %}
+        <strong>{{i}}!</strong> 
+        {% endfor %}
+        </div>
+    </div>
+    {%endif%}
+    
+    {% for f in forum %}
+
+    <div class="container rounded bg-light mt-3" >
+        <!--Img Name Date-->
+
+        <div class="media">
+            <img src="https://www.w3schools.com/bootstrap4/newyork.jpg" class=" p-1 rounded-circle"style="width: 45px;height: 45px;">
+            <div class="media-body">
+                <p><b>{{ forum.0.2 }} {{ forum.0.3 }}</b></p>
+                <p class="text-secondary" style="margin-top: -15px;">{{  forum.0.6 }}</p>
+                
+            </div>
+        </div>
+
+        <!--Forum Title-->
+        <div class="container p-3">
+            
+           <h4 class="">{{  forum.0.4 }}.</h4>
+           <h6 class="container text-secondary" style="word-wrap: break-word;"> {% autoescape off %} {{  forum.0.5 }} {% endautoescape %}</h6>
+           
+          
+           
+            <div>
+                <!--img class="mx-auto d-block img-fluid" src="https://www.w3schools.com/bootstrap4/paris.jpg" alt="Chania"--> 
+            </div>
+        </div>
+
+        <!--Add comment-->
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="pb-3" >
+                <div class="form-group p-1" >
+                    <textarea class="form-control"  placeholder="Add comment" name="reply" rows="3" id="comment" required></textarea>
+                </div> 
+                <div class="text-right pb-5">
+                    <button type="submit" class="btn btn-outline-dark float-right">Post</button>
+                </div>          
+            </div>
+        </form>
+    </div>
+
+    {% endfor %}
+
+    {% for r in reply %}
+    
+    <div class="container  bg-light mt-3 pb-3 rounded" >
+        <!--Img Name Date-->
+
+        <div class="media">
+            <img src="https://www.w3schools.com/bootstrap4/newyork.jpg" class=" p-1 rounded-circle"style="width: 45px;height: 45px;">
+            <div class="media-body">
+                <p><b>{{ r.2 }} {{ r.3 }}</b></p>
+                <p class="text-secondary" style="margin-top: -15px;">{{  r.5 }}</p>
+                
+            </div>
+        </div>
+
+        <!--Comment-->
+        <h6  class="container text-secondary ">{{ r.4 }}</h6>
+    </div>
+
+    {% endfor %}
+    <!-- Latest Forum List Ends-->
+
+{% endblock content %}
+
