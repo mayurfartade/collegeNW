@@ -5,6 +5,8 @@ from . import views  #added import views from current directory
 
 
 urlpatterns = [
-    path('syllabus/', views.syllabus, name='syllabus'),  
+    path('syllabus/', views.syllabus, name='syllabus'), 
+    path('que-papers/', views.que_papers, name='que-papers'),  
+    path('que-papers/<str:sub_name>/<int:sub_id>', views.que_papers_dis, name='que-papers-dis'), 
     
 ]

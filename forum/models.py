@@ -122,8 +122,8 @@ class Forum(models.Model):
     forum_id = models.AutoField(primary_key=True)
     user_id = models.IntegerField(blank=True, null=True)
     forum_name = models.CharField(max_length=200)
+    tags = models.CharField(max_length=48)
     description = models.TextField()
-    due_date = models.DateTimeField()
     reply = models.IntegerField()
     status = models.IntegerField()
     date_post = models.DateTimeField()
@@ -146,6 +146,17 @@ class ForumReplies(models.Model):
         db_table = 'forum_replies'
 
 
+class QuestionPapers(models.Model):
+    que_id = models.AutoField(primary_key=True)
+    subject_id = models.IntegerField(blank=True, null=True)
+    que_year = models.IntegerField()
+    link = models.CharField(max_length=100)
+
+    class Meta:
+        managed = False
+        db_table = 'question_papers'
+
+
 class Student(models.Model):
     stud_id = models.AutoField(primary_key=True)
     fname = models.CharField(max_length=30)
@@ -164,3 +175,14 @@ class Student(models.Model):
     class Meta:
         managed = False
         db_table = 'student'
+
+
+class Subjects(models.Model):
+    subject_id = models.AutoField(primary_key=True)
+    subject_name = models.CharField(max_length=40)
+    sem = models.IntegerField(blank=True, null=True)
+    year = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'subjects'

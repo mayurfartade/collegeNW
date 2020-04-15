@@ -1,0 +1,73 @@
+{% extends 'forum/base.html' %}
+
+{% block content  %}
+
+    {% if messages %}
+    <div class="container">
+        <div class=" alert alert-success">
+        {% for i in messages %}
+        <strong>{{i}}!</strong> 
+        {% endfor %}
+        </div>
+    </div>
+    {%endif%}
+
+
+    {% if subjects1 or subjects2 %}
+
+    <div class="container bg-light" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-12 col-md-6">
+
+                <ul class="list-group">
+                    <li class="list-group-item text-center"><strong>SEM V</strong></li>
+                    {% for s in subjects1 %}
+                    <li class="list-group-item"><a href="{% url 'que-papers-dis' s.subject_name s.subject_id %}">{{ s.subject_name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <div class="col-12 col-md-6">
+
+                <ul class="list-group">
+                    <li class="list-group-item text-center"><strong>SEM VI</strong></li>
+                    {% for s in subjects2  %}
+                    <li class="list-group-item"><a href="{% url 'que-papers-dis' s.subject_name s.subject_id %}">{{ s.subject_name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+           
+          </div>
+    </div>
+    {% else %}
+   
+   
+
+   
+
+    {% if sub_id %}
+        <div class="container text-center">
+            <div><b>{{subject_name}}</b></div>
+        </div>
+        {% for s in sub_id %}
+        <div class="container mt-2">
+            <div class="rounded bg-light">
+                <p>Year: {{s.que_year}}</p>
+                <p>View: <a href="https://docs.google.com/viewer?url={{link}}{{s.link}}.pdf &amp;embedded=true">Click</a></p>
+            </div>
+    
+        </div>
+        {%endfor%}
+    {% else %}
+    <div class="container text-center mt-5 bg-warning"><h1>Not found</h1></div>  
+    {%endif%}
+    {% endif %}
+    
+
+
+
+
+
+
+
+{% endblock content %}

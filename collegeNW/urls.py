@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include   #include added
 
+#custom 404 500 page
+
 urlpatterns = [
     path('forum/', include('forum.urls')),
     path('student/', include('student.urls')),

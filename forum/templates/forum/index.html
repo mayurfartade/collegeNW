@@ -41,15 +41,19 @@
                     <!--Add Forum-->
                     <div class="form-group">
                         <label for="name">Forum Name:</label>
-                        <input type="text" placeholder="Be specific about forum name" class="form-control" name="forum-name">
+                        <input type="text" placeholder="Be specific about forum name" class="form-control" name="forum-name" required>
                     </div>
                     <div class="form-group ">
                         <label for="create-forum">Forum Desciption:</label>
-                        <textarea class="form-control" placeholder="Detailed description about forum name " rows="3" name="create-forum"></textarea>
+                        <textarea class="form-control" placeholder="Detailed description about forum name " rows="3" name="create-forum" required></textarea>
                     </div> 
-                    <div class="form-group">
+                    <!--div class="form-group">
                         <label for="birthday">Availabality(Due Date):</label>
                         <input type="date" class="validate-input  form-control" style="max-width: 150px;"  name="due" required>
+                    </div-->
+                    <div class="form-group">
+                        <label for="name">Add Tags:</label>
+                        <input type="text" placeholder="Use space to add multiple tags(max 3)" class="form-control" name="forum-tag" required>
                     </div>
                     <div class="text-right"><button type="submit" name="submit" class=" btn btn-outline-dark">Post</button></div>
                 </div>
@@ -77,11 +81,14 @@
         <div class="media">
             <img src="https://www.w3schools.com/bootstrap4/newyork.jpg" class=" p-1 rounded-circle"style="width: 45px;height: 45px;">
             <div class="media-body">
-                <p><b>{{ f.2 }}  {{ f.3 }}</b></p>
+                <p><b>{{ f.2 }}  {{ f.3 }}</b>{% if user_id == f.1 %}<span class="float-right"><img src="https://as2.ftcdn.net/jpg/02/04/57/15/500_F_204571557_1I5ham6udcJLzlzeHGcRxgzJgzdjEU76.jpg" style="height: 35px;" alt="del"></span>{%endif%}</p>
                 <p class="text-secondary" style="margin-top: -15px;">{{ f.6 }}</p>
             </div>
         </div>
 
+        <div>
+            <span style="background-color: rgb(169, 230, 226);" class="p-1 rounded">{{f.8}}</span>
+        </div>
         <!--Forum Title-->
         <div class="container p-3">
             

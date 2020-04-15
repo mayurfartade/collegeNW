@@ -69,14 +69,14 @@
         <div class="media">
             <img src="https://www.w3schools.com/bootstrap4/newyork.jpg" class=" p-1 rounded-circle"style="width: 45px;height: 45px;">
             <div class="media-body">
-                <p><b>{{ r.2 }} {{ r.3 }}</b></p>
+                <p><b>{{ r.2 }} {{ r.3 }}</b>{% if user_id == r.1 %}<span class="float-right"><img src="https://as2.ftcdn.net/jpg/02/04/57/15/500_F_204571557_1I5ham6udcJLzlzeHGcRxgzJgzdjEU76.jpg" style="height: 35px;" alt="del"></span>{%endif%}</p>
                 <p class="text-secondary" style="margin-top: -15px;">{{  r.5 }}</p>
                 
             </div>
         </div>
 
         <!--Comment-->
-        <h6  class="container text-secondary ">{{ r.4 }}</h6>
+        <h6  class="container text-secondary " style="word-wrap: break-word;">{% autoescape off %} {{ r.4 }} {% endautoescape %}</h6>
     </div>
 
     {% endfor %}
